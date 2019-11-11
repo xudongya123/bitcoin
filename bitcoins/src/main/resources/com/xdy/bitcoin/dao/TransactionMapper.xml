@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xdy.bitcoin.dao.TransactionMapper">
+    <resultMap id="BaseResultMap" type="com.xdy.bitcoin.po.Transaction">
+        <id column="txhash" jdbcType="CHAR" property="txhash"/>
+        <result column="confirmations" jdbcType="INTEGER" property="confirmations"/>
+        <result column="receivedtime" jdbcType="INTEGER" property="receivedtime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="height" jdbcType="INTEGER" property="height"/>
+        <result column="totalinput" jdbcType="DOUBLE" property="totalinput"/>
+        <result column="weight" jdbcType="INTEGER" property="weight"/>
+        <result column="totaloutput" jdbcType="CHAR" property="totaloutput"/>
+        <result column="fees" jdbcType="VARCHAR" property="fees"/>
+        <result column="feeperbyte" jdbcType="INTEGER" property="feeperbyte"/>
+        <result column="feeperweight" jdbcType="INTEGER" property="feeperweight"/>
+        <result column="size" jdbcType="INTEGER" property="size"/>
+        <result column="blockhash" jdbcType="CHAR" property="blockhash"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        txhash, confirmations, receivedtime, status, height, totalinput, weight, totaloutput,
+        fees, feeperbyte, feeperweight, size, blockhash
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from transaction
+        where txhash = #{txhash,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from transaction
+        where txhash = #{txhash,jdbcType=CHAR}
+    </delete>
+    <insert id="insert" parameterType="com.xdy.bitcoin.po.Transaction">
+        insert into transaction (txhash, confirmations, receivedtime,
+        status, height, totalinput,
+        weight, totaloutput, fees,
+        feeperbyte, feeperweight, size,
+        blockhash)
+        values (#{txhash,jdbcType=CHAR}, #{confirmations,jdbcType=INTEGER}, #{receivedtime,jdbcType=INTEGER},
+        #{status,jdbcType=INTEGER}, #{height,jdbcType=INTEGER}, #{totalinput,jdbcType=DOUBLE},
+        #{weight,jdbcType=INTEGER}, #{totaloutput,jdbcType=CHAR}, #{fees,jdbcType=VARCHAR},
+        #{feeperbyte,jdbcType=INTEGER}, #{feeperweight,jdbcType=INTEGER}, #{size,jdbcType=INTEGER},
+        #{blockhash,jdbcType=CHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.xdy.bitcoin.po.Transaction">
+        insert into transaction
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="txhash != null">
+                txhash,
+            </if>
+            <if test="confirmations != null">
+                confirmations,
+            </if>
+            <if test="receivedtime != null">
+                receivedtime,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="height != null">
+                height,
+            </if>
+            <if test="totalinput != null">
+                totalinput,
+            </if>
+            <if test="weight != null">
+                weight,
+            </if>
+            <if test="totaloutput != null">
+                totaloutput,
+            </if>
+            <if test="fees != null">
+                fees,
+            </if>
+            <if test="feeperbyte != null">
+                feeperbyte,
+            </if>
+            <if test="feeperweight != null">
+                feeperweight,
+            </if>
+            <if test="size != null">
+                size,
+            </if>
+            <if test="blockhash != null">
+                blockhash,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="txhash != null">
+                #{txhash,jdbcType=CHAR},
+            </if>
+            <if test="confirmations != null">
+                #{confirmations,jdbcType=INTEGER},
+            </if>
+            <if test="receivedtime != null">
+                #{receivedtime,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="height != null">
+                #{height,jdbcType=INTEGER},
+            </if>
+            <if test="totalinput != null">
+                #{totalinput,jdbcType=DOUBLE},
+            </if>
+            <if test="weight != null">
+                #{weight,jdbcType=INTEGER},
+            </if>
+            <if test="totaloutput != null">
+                #{totaloutput,jdbcType=CHAR},
+            </if>
+            <if test="fees != null">
+                #{fees,jdbcType=VARCHAR},
+            </if>
+            <if test="feeperbyte != null">
+                #{feeperbyte,jdbcType=INTEGER},
+            </if>
+            <if test="feeperweight != null">
+                #{feeperweight,jdbcType=INTEGER},
+            </if>
+            <if test="size != null">
+                #{size,jdbcType=INTEGER},
+            </if>
+            <if test="blockhash != null">
+                #{blockhash,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xdy.bitcoin.po.Transaction">
+        update transaction
+        <set>
+            <if test="confirmations != null">
+                confirmations = #{confirmations,jdbcType=INTEGER},
+            </if>
+            <if test="receivedtime != null">
+                receivedtime = #{receivedtime,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="height != null">
+                height = #{height,jdbcType=INTEGER},
+            </if>
+            <if test="totalinput != null">
+                totalinput = #{totalinput,jdbcType=DOUBLE},
+            </if>
+            <if test="weight != null">
+                weight = #{weight,jdbcType=INTEGER},
+            </if>
+            <if test="totaloutput != null">
+                totaloutput = #{totaloutput,jdbcType=CHAR},
+            </if>
+            <if test="fees != null">
+                fees = #{fees,jdbcType=VARCHAR},
+            </if>
+            <if test="feeperbyte != null">
+                feeperbyte = #{feeperbyte,jdbcType=INTEGER},
+            </if>
+            <if test="feeperweight != null">
+                feeperweight = #{feeperweight,jdbcType=INTEGER},
+            </if>
+            <if test="size != null">
+                size = #{size,jdbcType=INTEGER},
+            </if>
+            <if test="blockhash != null">
+                blockhash = #{blockhash,jdbcType=CHAR},
+            </if>
+        </set>
+        where txhash = #{txhash,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.xdy.bitcoin.po.Transaction">
+        update transaction
+        set confirmations = #{confirmations,jdbcType=INTEGER},
+        receivedtime = #{receivedtime,jdbcType=INTEGER},
+        status = #{status,jdbcType=INTEGER},
+        height = #{height,jdbcType=INTEGER},
+        totalinput = #{totalinput,jdbcType=DOUBLE},
+        weight = #{weight,jdbcType=INTEGER},
+        totaloutput = #{totaloutput,jdbcType=CHAR},
+        fees = #{fees,jdbcType=VARCHAR},
+        feeperbyte = #{feeperbyte,jdbcType=INTEGER},
+        feeperweight = #{feeperweight,jdbcType=INTEGER},
+        size = #{size,jdbcType=INTEGER},
+        blockhash = #{blockhash,jdbcType=CHAR}
+        where txhash = #{txhash,jdbcType=CHAR}
+    </update>
+</mapper>
