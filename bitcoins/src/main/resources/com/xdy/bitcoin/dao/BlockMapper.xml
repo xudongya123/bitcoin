@@ -228,7 +228,7 @@
     </select>
     <select id="blockhash" resultMap="BaseResultMap">
 
-        select * from (blockhash,height,miner,size) block
+        select height,blockhash,timestamp,miner,size from block
 
     </select>
 

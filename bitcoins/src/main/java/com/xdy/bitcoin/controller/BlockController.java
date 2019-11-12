@@ -18,15 +18,15 @@ public class BlockController {
 
     @Resource
     private BlockMapper blockMapper;
+    @GetMapping("/blockhash")
+    public List<Block> blockhash(){
+        return blockMapper.blockhash();
+    }
 
     @GetMapping("/blocks")
     public List<Block> blocks() {
         return blockMapper.blocks();
-    }
-     
-    @GetMapping("/blockhash")
-    public List<Block> blockhash(){
-        return blockMapper.blockhash();
+
     }
 
 }
