@@ -2,6 +2,8 @@ package com.xdy.bitcoin.dao;
 
 import com.xdy.bitcoin.po.Detail;
 
+import java.util.List;
+
 public interface DetailMapper {
     int deleteByPrimaryKey(String detailid);
 
@@ -14,4 +16,6 @@ public interface DetailMapper {
     int updateByPrimaryKeySelective(Detail record);
 
     int updateByPrimaryKey(Detail record);
+
+    List<Detail> getdetail(Integer detailid);
 }

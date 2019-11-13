@@ -136,4 +136,10 @@
         txhash = #{txhash,jdbcType=CHAR}
         where detailId = #{detailid,jdbcType=CHAR}
     </update>
+    <select id="getdetail"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from detail
+        where detailid = #{detailid}
+    </select>
 </mapper>
