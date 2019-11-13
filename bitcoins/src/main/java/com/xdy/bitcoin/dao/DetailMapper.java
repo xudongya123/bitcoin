@@ -18,4 +18,6 @@ public interface DetailMapper {
     int updateByPrimaryKey(Detail record);
 
     List<Detail> getdetail(Integer detailid);
+
+    List<Detail> getaddress(String address);
 }

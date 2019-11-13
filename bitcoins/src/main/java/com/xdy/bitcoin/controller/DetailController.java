@@ -20,4 +20,10 @@ public class DetailController {
         List<Detail> details= detailMapper.getdetail(detailid);
         return details;
     }
+
+    @GetMapping("/address")
+    public List<Detail> getaddress(@RequestParam String address){
+        List<Detail> addresss= detailMapper.getaddress(address);
+        return addresss;
+    }
 }
