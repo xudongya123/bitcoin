@@ -18,6 +18,7 @@ public class BlockController {
 
     @Resource
     private BlockMapper blockMapper;
+
     @GetMapping("/getblocks")
     public List<Block> getblocks(){
         List<Block> blocks=blockMapper.getblocks();

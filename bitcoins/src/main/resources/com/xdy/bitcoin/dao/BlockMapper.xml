@@ -226,10 +226,6 @@
         select * from block
 
     </select>
-    <select id="blockhash" resultMap="BaseResultMap">
 
-        select height,blockhash,timestamp,miner,size from block
-
-    </select>
 
 </mapper>
