@@ -185,4 +185,11 @@
         blockhash = #{blockhash,jdbcType=CHAR}
         where txhash = #{txhash,jdbcType=CHAR}
     </update>
+
+    <select id="transaction" resultMap="BaseResultMap">
+
+    select * from transaction
+
+    </select>
+
 </mapper>
