@@ -15,7 +15,6 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/bitcoin")
 public class BlockController {
-
     @Resource
     private BlockMapper blockMapper;
 
