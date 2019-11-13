@@ -18,4 +18,6 @@ public interface TransactionMapper {
     int updateByPrimaryKey(Transaction record);
 
     List<Transaction> Transaction();
+
+    Transaction gethash(String txhash);
 }

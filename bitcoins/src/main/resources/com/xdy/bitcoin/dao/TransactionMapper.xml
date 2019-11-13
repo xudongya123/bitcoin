@@ -191,5 +191,11 @@
     select * from transaction
 
     </select>
+    <select id="gethash" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from transaction
+        where TxHash = #{txhash}
+    </select>
 
 </mapper>

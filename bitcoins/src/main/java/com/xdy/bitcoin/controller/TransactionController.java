@@ -21,4 +21,10 @@ public class TransactionController {
         List<Transaction> transaction= transactionMapper.Transaction();
         return transaction;
     }
+
+    @GetMapping("/gethash")
+    public Transaction gethash(@RequestParam String txhash){
+        Transaction transaction= transactionMapper.gethash(txhash);
+        return transaction;
+    }
 }
