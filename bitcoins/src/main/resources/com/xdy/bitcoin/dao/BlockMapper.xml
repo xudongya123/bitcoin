@@ -221,7 +221,7 @@
         where blockhash = #{blockhash,jdbcType=CHAR}
     </update>
 
-    <select id="blocks" resultMap="BaseResultMap">
+    <select id="getblocks" resultMap="BaseResultMap">
 
         select * from block
 

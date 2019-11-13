@@ -17,7 +17,7 @@ public interface BlockMapper {
 
     int updateByPrimaryKey(Block record);
 
-    List<Block> blocks();
+    List<Block> getblocks();
 
-    List<Block> blockhash();
+
 }
