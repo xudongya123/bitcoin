@@ -20,4 +20,5 @@ public interface BlockMapper {
     List<Block> getblocks();
 
 
+    Block getblockhash(String blockhash);
 }

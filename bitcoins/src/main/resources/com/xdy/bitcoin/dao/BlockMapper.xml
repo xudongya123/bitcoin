@@ -221,11 +221,15 @@
         where blockhash = #{blockhash,jdbcType=CHAR}
     </update>
 
-    <select id="getblocks" resultMap="BaseResultMap">
+    <select id="getblockhash" resultMap="BaseResultMap">
 
         select * from block
 
     </select>
+    <select id="getblocks" resultMap="BaseResultMap">
 
+        select height,blockhash,timestamp,miner,size from block
+
+    </select>
 
 </mapper>
